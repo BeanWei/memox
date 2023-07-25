@@ -1,0 +1,49 @@
+*.py[cod]
+*.egg-info
+*.eggs
+*.pyc
+*.log
+*.pem
+*.so
+*.crx
+*.xpi
+*.zip
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+dist
+dist-ssr
+extension
+.cache
+.vite-ssg-dist
+.vite-ssg-temp
+.output
+
+.config/
+.docker/
+
+# ide
+.idea
+.eclipse
+.vscode/*
+
+# vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Mac
+.DS_Store
+
+# dependencies
+vender/
+node_modules
+.pnp
+.pnp.js
+
+# generate types
+.wxt/*

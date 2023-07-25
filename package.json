@@ -1,0 +1,32 @@
+{
+  "name": "memox",
+  "description": "memo x",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@8.4.0",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.94",
+    "@types/node": "^20.4.4",
+    "@unocss/reset": "^0.53.6",
+    "prettier": "3.0.0",
+    "prettier-plugin-organize-imports": "3.2.3",
+    "typescript": "5.1.6",
+    "unocss": "^0.53.6",
+    "unplugin-icons": "^0.16.5",
+    "vite-plugin-solid": "^2.7.0",
+    "webext-bridge": "^6.0.1",
+    "wxt": "^0.3.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.8"
+  }
+}

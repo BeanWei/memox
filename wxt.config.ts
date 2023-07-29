@@ -1,4 +1,3 @@
-import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 import Solid from 'vite-plugin-solid'
 import { defineConfig } from 'wxt'
@@ -15,9 +14,6 @@ export default defineConfig({
       '128': 'icon/128.png',
     },
   },
-  imports: {
-    presets: ['solid-js'],
-  },
   vite: {
     plugins: [
       Solid(),
@@ -27,9 +23,6 @@ export default defineConfig({
         compiler: 'solid',
         jsx: 'preact',
       }),
-
-      // https://github.com/unocss/unocss
-      UnoCSS(),
     ],
   },
 })

@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web'
-import 'uno.css'
-import SidePanel from './SidePanel'
+import '~/theme/sidepanel.css'
+import App from './app'
 
-render(SidePanel, document.querySelector('#root')!)
+render(App, document.querySelector('#root')!)

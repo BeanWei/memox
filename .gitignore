@@ -46,4 +46,7 @@ node_modules
 .pnp.js
 
 # generate types
-.wxt/*
+.wxt
+
+# CSS Panda
+panda

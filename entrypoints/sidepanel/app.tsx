@@ -10,7 +10,7 @@ export default function App() {
   return (
     <Router source={memoryIntegration()}>
       <Navbar />
-      <Container>
+      <Container p="2">
         <Routes>
           <Route path="/" component={Home}></Route>
           <Route path="/about" component={About}></Route>

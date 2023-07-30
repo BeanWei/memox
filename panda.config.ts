@@ -4,7 +4,11 @@ import { recipes } from '~/theme/recipes'
 
 export default defineConfig({
   preflight: true,
-  include: ['./components/**/*.{js,jsx,ts,tsx}', './entrypoints/**/*.{js,jsx,ts,tsx}'],
+  include: [
+    './components/**/*.{js,jsx,ts,tsx}',
+    './entrypoints/**/*.{js,jsx,ts,tsx}',
+    './theme/**/*.{js,jsx,ts,tsx}',
+  ],
   exclude: [],
   presets: ['@pandacss/dev/presets'],
   outdir: 'panda',

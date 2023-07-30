@@ -42,14 +42,16 @@ export const button = defineRecipe({
         color: 'primary.foreground',
         backgroundColor: 'primary.default',
         _hover: {
-          backgroundColor: 'primary.default/90',
+          backgroundColor: 'primary.default',
+          opacity: '0.9',
         },
       },
       destructive: {
         color: 'destructive.foreground',
         backgroundColor: 'destructive.default',
         _hover: {
-          backgroundColor: 'destructive.default/90',
+          backgroundColor: 'destructive.default',
+          opacity: '0.9',
         },
       },
       outline: {
@@ -65,7 +67,8 @@ export const button = defineRecipe({
         color: 'secondary.foreground',
         backgroundColor: 'secondary.default',
         _hover: {
-          backgroundColor: 'secondary.default/90',
+          backgroundColor: 'secondary.default',
+          opacity: '0.9',
         },
       },
       ghost: {

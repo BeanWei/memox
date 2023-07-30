@@ -10,6 +10,9 @@ dependencies:
   solid-js:
     specifier: ^1.7.8
     version: 1.7.8
+  solidjs-use:
+    specifier: ^2.2.1
+    version: 2.2.1
 
 devDependencies:
   '@iconify/json':
@@ -1542,6 +1545,16 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
+  /@solidjs-use/shared@2.2.1:
+    resolution: {integrity: sha512-/A88SuOOCqWwMrCzM38dAE1sYrn7+hM8T4tzLBRE8kTVYNJMXJv/Bc0SuPe3d8FW1hKvJOXw4h0tRX+zIdvAVw==}
+    dependencies:
+      '@solidjs-use/solid-to-vue': 2.2.1
+    dev: false
+
+  /@solidjs-use/solid-to-vue@2.2.1:
+    resolution: {integrity: sha512-+nTRBhuyX4HgjLF0AswlVpfY9CMRxuiYdN3eXIVnusKpAOh2qxsWULMDs/ef/GON+kaLoq2xf5X53aZov8t1PQ==}
+    dev: false
+
   /@solidjs/router@0.8.2(solid-js@1.7.8):
     resolution: {integrity: sha512-gUKW+LZqxtX6y/Aw6JKyy4gQ9E7dLqp513oB9pSYJR1HM5c56Pf7eijzyXX+b3WuXig18Cxqah4tMtF0YGu80w==}
     peerDependencies:
@@ -1689,6 +1702,10 @@ packages:
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
     dev: true
+
+  /@types/web-bluetooth@0.0.16:
+    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
 
   /@types/webextension-polyfill@0.10.1:
     resolution: {integrity: sha512-Sdg+E2F5JUbhkE1qX15QUxpyhfMFKRGJqND9nb1C0gNN4NR7kCV31/1GvNbg6Xe+m/JElJ9/lG5kepMzjGPuQw==}
@@ -7445,6 +7462,13 @@ packages:
       '@babel/types': 7.22.5
       solid-js: 1.7.8
     dev: true
+
+  /solidjs-use@2.2.1:
+    resolution: {integrity: sha512-/qwDo69CWUcwVLSVNA4f72e1RUs4no62j5beOtiVmj89YWUNbF87NuQBR2f8DK6bP5oiXxBqg2l3aiRIKxqcdg==}
+    dependencies:
+      '@solidjs-use/shared': 2.2.1
+      '@types/web-bluetooth': 0.0.16
+    dev: false
 
   /sonic-boom@3.3.0:
     resolution: {integrity: sha512-LYxp34KlZ1a2Jb8ZQgFCK3niIHzibdwtwNUWKg0qQRzsDoJ3Gfgkf8KdBTFU3SkejDEIlWwnSnpVdOZIhFMl/g==}

@@ -1,13 +1,13 @@
 import { A, LinkProps } from '@solidjs/router'
-import { Component, JSX, splitProps } from 'solid-js'
+import { Component, splitProps } from 'solid-js'
 import { cx } from '~/panda/css'
-import { styled } from '~/panda/jsx'
+import { HTMLStyledProps, styled } from '~/panda/jsx'
 import { button, type ButtonVariantProps } from '~/panda/recipes'
 
 export type ButtonProps = ButtonVariantProps & {
   href?: LinkProps['href']
-} & JSX.ButtonHTMLAttributes<HTMLButtonElement> &
-  JSX.AnchorHTMLAttributes<HTMLAnchorElement>
+} & HTMLStyledProps<'button'> &
+  HTMLStyledProps<'a'>
 
 export const Button: Component<ButtonProps> = (props) => {
   const [local, rest] = splitProps(props, ['class', 'variant', 'size', 'href', 'children'])

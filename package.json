@@ -28,6 +28,7 @@
   "dependencies": {
     "@ark-ui/solid": "^0.8.1",
     "@solidjs/router": "^0.8.2",
-    "solid-js": "^1.7.8"
+    "solid-js": "^1.7.8",
+    "solidjs-use": "^2.2.1"
   }
 }

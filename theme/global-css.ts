@@ -12,6 +12,7 @@ export const globalCss = defineGlobalStyles({
   },
   body: {
     backgroundColor: 'background',
+    color: 'foreground',
     flexGrow: '1',
     _dark: {
       colorScheme: 'dark',

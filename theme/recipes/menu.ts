@@ -30,7 +30,7 @@ export const menu = defineRecipe({
   description: 'A menu style',
   base: parts({
     positioner: {
-      zIndex: '100',
+      zIndex: '50',
     },
     separator: {
       bg: 'muted.default',

@@ -1,5 +1,5 @@
 import { Component } from 'solid-js'
-import { ModeToggle } from '~/components/marketing/mode-toggle'
+import { ModeToggle } from '~/components/fragment/mode-toggle'
 import { Button } from '~/components/shared/button'
 import { css } from '~/panda/css'
 import { Container, Flex, styled } from '~/panda/jsx'

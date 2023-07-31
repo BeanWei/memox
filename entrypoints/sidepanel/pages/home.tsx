@@ -1,4 +1,5 @@
 import { Component } from 'solid-js'
+import { Editor } from '~/components/fragment/editor'
 import { Button } from '~/components/shared/button'
 import { css } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
@@ -16,16 +17,15 @@ const Home: Component = () => {
         shadow="xs"
         p="2"
       >
-        <styled.div>
-          <styled.textarea
-            placeholder="Capture your thoughts..."
-            minH="60px"
-            w="full"
-            bg="transparent"
-            fontSize="sm"
-            _focusVisible={{ ring: 'none', ringOffset: 'none', shadow: '1' }}
-          ></styled.textarea>
-        </styled.div>
+        <Editor
+          placeholder="Capture your thoughts..."
+          inline
+          blocks
+          lists
+          onBlur={(editor) => {
+            console.log(editor.getJSON())
+          }}
+        />
         <Flex alignItems="center" mt="2" justify="space-between">
           <Flex gap="1">
             <Button variant="ghost" size="xs" px="0">

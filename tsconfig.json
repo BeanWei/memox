@@ -1,6 +1,7 @@
 {
   "extends": ["./.wxt/tsconfig.json"],
   "compilerOptions": {
+    "moduleResolution": "node",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "paths": {

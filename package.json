@@ -27,7 +27,16 @@
   },
   "dependencies": {
     "@ark-ui/solid": "^0.8.1",
+    "@solid-primitives/scheduled": "^1.4.0",
     "@solidjs/router": "^0.8.2",
+    "@tiptap/core": "^2.0.4",
+    "@tiptap/extension-document": "^2.0.4",
+    "@tiptap/extension-paragraph": "^2.0.4",
+    "@tiptap/extension-placeholder": "^2.0.4",
+    "@tiptap/extension-text": "^2.0.4",
+    "@tiptap/extension-typography": "^2.0.4",
+    "@tiptap/pm": "^2.0.4",
+    "@vrite/tiptap-solid": "^2023.7.25",
     "solid-js": "^1.7.8",
     "solidjs-use": "^2.2.1"
   }

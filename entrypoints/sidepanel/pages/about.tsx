@@ -1,13 +1,14 @@
 import { useNavigate } from '@solidjs/router'
 import { Component } from 'solid-js'
+import { styled } from '~/panda/jsx'
 
 const About: Component = () => {
   const navigate = useNavigate()
 
   return (
-    <div class="text-center" onClick={() => navigate('/')}>
+    <styled.div textAlign="center" onClick={() => navigate('/')}>
       About
-    </div>
+    </styled.div>
   )
 }
 

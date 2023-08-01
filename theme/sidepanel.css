@@ -4,3 +4,11 @@ body {
   font-family: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";';
   font-size: 16px;
 }
+
+.ProseMirror p.is-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  opacity: 0.25;
+  pointer-events: none;
+  height: 0;
+}

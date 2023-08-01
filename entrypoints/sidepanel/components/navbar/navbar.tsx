@@ -8,7 +8,7 @@ import MobileNav from './mobile-nav'
 
 const Navbar: Component = () => (
   <styled.header
-    backdropBlur="base"
+    bg="background"
     position="sticky"
     top="0"
     zIndex="40"

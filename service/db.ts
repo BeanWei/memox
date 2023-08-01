@@ -43,28 +43,29 @@ export class DB {
     })
   }
 
-  getRef(...paths: string[]) {
-    return this.aceBase.ref<Memo>(paths.join('/'))
+  getRef<T>(...paths: string[]) {
+    return this.aceBase.ref<T>(paths.filter((p) => p.trim().length > 0).join('/'))
   }
 
-  async save(table: string, value: Memo) {
+  async save<T>(table: string, value: any) {
     if (value.id && value.updated_at) {
       value.updated_at = nowUnix()
     }
-    return await this.getRef(table, value.id).set(value)
+    return await this.getRef<T>(table, value.id).set(value)
   }
 
-  async remove(table: string, id: string) {
-    return await this.getRef(table, id).remove()
+  async remove<T>(table: string, id: string) {
+    return await this.getRef<T>(table, id).remove()
   }
 
-  async list(table: string, params?: DBQuery) {
+  async list<T>(table: string, params?: DBQuery) {
     const q = this.aceBase.query(table)
     const limit = params?.limit || 20
     const offset = params?.page ? (params?.page - 1) * limit : 0
     params?.filters?.forEach((f) => q.filter(...f))
     params?.sorts?.forEach((s) => (Array.isArray(s) ? q.sort(...s) : q.sort(s)))
-    return q.take(limit).skip(offset).get<Memo[]>()
+    const res = await q.take(limit).skip(offset).get<T[]>()
+    return res.getValues()
   }
 }
 

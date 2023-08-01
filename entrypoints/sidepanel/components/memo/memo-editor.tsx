@@ -5,8 +5,9 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Text from '@tiptap/extension-text'
 import Typography from '@tiptap/extension-typography'
 import { SolidEditor, SolidEditorContent, useEditor } from '@vrite/tiptap-solid'
-import { Component, Show, createEffect, on } from 'solid-js'
+import { Component, Show, createEffect, createSignal, on } from 'solid-js'
 import { Button } from '~/components/shared/button'
+import { Spin } from '~/components/shared/spin'
 import { css } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
 import { Memo, db } from '~/service/db'
@@ -23,7 +24,7 @@ type ExtensionOptions = {
 }
 
 export type MemoEditorProps = {
-  content?: string
+  content?: Content
   editable?: boolean
   afterSave?: (editor: SolidEditor) => void
 }
@@ -36,9 +37,9 @@ const getExtensions = (options: ExtensionOptions): Extensions => {
         if (node.type.name === 'paragraph' && editor.state.doc.firstChild === node) {
           return options.placeholder || ''
         }
-
         return ''
       },
+      emptyEditorClass: css({ color: 'muted.foreground' }),
     }),
     Paragraph,
     Text,
@@ -53,6 +54,8 @@ const getExtensions = (options: ExtensionOptions): Extensions => {
 }
 
 export const MemoEditor: Component<MemoEditorProps> = (props) => {
+  const [isSaving, setIsSaving] = createSignal(false)
+
   const editor = useEditor({
     editable: props.editable,
     extensions: getExtensions({
@@ -81,9 +84,14 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
   )
 
   const handleMemoSave = () => {
+    setIsSaving(true)
     const val = new Memo()
     val.content = editor().getJSON()
-    db.save(db.table.memos, val).then(() => props.afterSave?.(editor()))
+    db.save(db.table.memos, val)
+      .then(() => {
+        props.afterSave?.(editor())
+      })
+      .finally(() => setIsSaving(false))
   }
 
   return (
@@ -107,8 +115,11 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
               <IconLink class={css({ h: '1.2rem', w: '1.2rem' })} />
             </Button>
           </Flex>
-          <Button size="xs" onClick={handleMemoSave}>
-            Save
+          <Button size="xs" onClick={handleMemoSave} disabled={isSaving()}>
+            <Show when={isSaving()} fallback={<>Save</>}>
+              <Spin mr="2" />
+              Saving
+            </Show>
           </Button>
         </Flex>
       </Show>

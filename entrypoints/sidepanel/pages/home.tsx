@@ -44,7 +44,7 @@ const Home: Component = () => {
         </Flex>
       </Show>
       <Show when={result()?.length && isFinished()}>
-        <Flex direction="column" gap="2" mt="3">
+        <Flex direction="column" gap="2" mt="3" maxH="calc(100vh - 190px)" overflow="overlay">
           <For each={result()}>{(item) => <MemoItem data={item} />}</For>
         </Flex>
       </Show>

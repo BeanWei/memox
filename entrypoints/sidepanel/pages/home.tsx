@@ -1,10 +1,6 @@
 import { Component } from 'solid-js'
-import { Editor } from '~/components/fragment/editor'
-import { Button } from '~/components/shared/button'
-import { css } from '~/panda/css'
-import { Flex, styled } from '~/panda/jsx'
-import IconImage from '~icons/carbon/image'
-import IconLink from '~icons/carbon/link'
+import { styled } from '~/panda/jsx'
+import { MemoEditor } from '../components/memo/memo-editor'
 
 const Home: Component = () => {
   return (
@@ -17,26 +13,7 @@ const Home: Component = () => {
         shadow="xs"
         p="2"
       >
-        <Editor
-          placeholder="Capture your thoughts..."
-          inline
-          blocks
-          lists
-          onBlur={(editor) => {
-            console.log(editor.getJSON())
-          }}
-        />
-        <Flex alignItems="center" mt="2" justify="space-between">
-          <Flex gap="1">
-            <Button variant="ghost" size="xs" px="0">
-              <IconImage class={css({ h: '1.2rem', w: '1.2rem' })} />
-            </Button>
-            <Button variant="ghost" size="xs" px="0">
-              <IconLink class={css({ h: '1.2rem', w: '1.2rem' })} />
-            </Button>
-          </Flex>
-          <Button size="xs">Submit</Button>
-        </Flex>
+        <MemoEditor editable />
       </styled.div>
     </>
   )

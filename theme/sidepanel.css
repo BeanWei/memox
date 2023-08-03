@@ -5,6 +5,17 @@ body {
   font-size: 16px;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: hsl(240 5% 64.9%);
+}
+
 .ProseMirror p.is-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;

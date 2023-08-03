@@ -27,9 +27,12 @@ export class DB {
   public table = {
     memos: 'memos',
   }
+  public defaultLimit: number
 
   constructor() {
-    this.aceBase = AceBase.WithIndexedDB('memox')
+    this.aceBase = AceBase.WithIndexedDB('memox', {
+      logLevel: 'warn',
+    })
     this.aceBase.types.bind(this.table.memos, Memo, {
       serializer: (_ref: any, data: Memo) => {
         data.content = JSON.stringify(data.content)
@@ -41,6 +44,7 @@ export class DB {
         return data
       },
     })
+    this.defaultLimit = 20
   }
 
   getRef<T>(...paths: string[]) {
@@ -60,7 +64,7 @@ export class DB {
 
   async list<T>(table: string, params?: DBQuery) {
     const q = this.aceBase.query(table)
-    const limit = params?.limit || 20
+    const limit = params?.limit || this.defaultLimit
     const offset = params?.page ? (params?.page - 1) * limit : 0
     params?.filters?.forEach((f) => q.filter(...f))
     params?.sorts?.forEach((s) => (Array.isArray(s) ? q.sort(...s) : q.sort(s)))

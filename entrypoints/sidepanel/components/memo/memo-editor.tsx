@@ -59,7 +59,7 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
   const editor = useEditor({
     editable: props.editable,
     extensions: getExtensions({
-      placeholder: 'Capture your thoughts...',
+      placeholder: 'Unlock your thoughts...',
       inline: true,
       blocks: true,
       lists: true,

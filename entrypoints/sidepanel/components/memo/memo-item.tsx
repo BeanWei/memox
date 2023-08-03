@@ -50,7 +50,12 @@ export const MemoItem: Component<{ data: Memo }> = (props) => {
           </styled.span>
           <Show when={isHovered()}>
             <Flex justify="end" align="center">
-              <Button variant="ghost" size="xs" class={css({ px: '0' })}>
+              <Button
+                variant="ghost"
+                size="xs"
+                class={css({ px: '0' })}
+                onClick={() => setEditable(true)}
+              >
                 <IconEdit class={css({ h: '1.2rem', w: '1.2rem' })} />
               </Button>
               <Button variant="ghost" size="xs" class={css({ px: '0' })}>

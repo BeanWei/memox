@@ -10,7 +10,7 @@ export default function App() {
   return (
     <Router source={memoryIntegration()}>
       <Navbar />
-      <Container p="2">
+      <Container py="2" px="0">
         <Routes>
           <Route path="/" component={Home}></Route>
           <Route path="/about" component={About}></Route>

@@ -5,7 +5,7 @@ import { defineConfig } from 'wxt'
 // See https://wxt.dev/config.html
 export default defineConfig({
   manifest: {
-    permissions: ['sidePanel'],
+    permissions: ['sidePanel', 'unlimitedStorage'],
     icons: {
       '16': 'icon/16.png',
       '32': 'icon/32.png',

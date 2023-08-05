@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@ark-ui/solid": "^0.8.1",
+    "@leeoniya/ufuzzy": "^1.0.8",
     "@solid-primitives/scheduled": "^1.4.0",
     "@solidjs/router": "^0.8.2",
     "@tiptap/core": "^2.0.4",

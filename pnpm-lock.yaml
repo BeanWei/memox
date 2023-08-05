@@ -4,6 +4,9 @@ dependencies:
   '@ark-ui/solid':
     specifier: ^0.8.1
     version: 0.8.1(solid-js@1.7.8)
+  '@leeoniya/ufuzzy':
+    specifier: ^1.0.8
+    version: 1.0.8
   '@solid-primitives/scheduled':
     specifier: ^1.4.0
     version: 1.4.0(solid-js@1.7.8)
@@ -1237,6 +1240,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /@leeoniya/ufuzzy@1.0.8:
+    resolution: {integrity: sha512-HQ6aJlYpWLq1f9AiApJl0aOIXlJUtuhBOYfSfv5rt3XNYkCBveojtnL6FvOVpJ2gEJ2wqgMW8xOHkLVYAbXghg==}
+    dev: false
 
   /@linaria/core@4.2.10:
     resolution: {integrity: sha512-S1W01W7L4SQnGpWzp8awyCpPIYUOEJ+OLjjXqKpIXOU+ozPwBt86Mjjdas9aZccVhNBWDja74cMCUAVp8yUpDQ==}

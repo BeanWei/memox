@@ -11,8 +11,10 @@ import { Spin } from '~/components/shared/spin'
 import { css } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
 import { Memo, db } from '~/service/db'
+import IconAdd from '~icons/carbon/add'
 import IconImage from '~icons/carbon/image'
 import IconLink from '~icons/carbon/link'
+import { TagPopover } from '../tag/tag-popover'
 
 type ExtensionOptions = {
   content?: Content
@@ -107,13 +109,19 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
       </styled.div>
       <Show when={props.editable}>
         <Flex alignItems="center" mt="2" justify="space-between">
-          <Flex gap="1">
+          <Flex gap="1" alignItems="center">
             <Button variant="ghost" size="xs" px="0">
               <IconImage class={css({ h: '1.2rem', w: '1.2rem' })} />
             </Button>
             <Button variant="ghost" size="xs" px="0">
               <IconLink class={css({ h: '1.2rem', w: '1.2rem' })} />
             </Button>
+            <TagPopover>
+              <Button variant="outline" size="xs" px="1.5" rounded="full" h="1.5rem">
+                <IconAdd class={css({ h: '1.2rem', w: '1.2rem' })} />
+                Tag
+              </Button>
+            </TagPopover>
           </Flex>
           <Button size="xs" onClick={handleMemoSave} disabled={isSaving()}>
             <Show when={isSaving()} fallback={<>Save</>}>

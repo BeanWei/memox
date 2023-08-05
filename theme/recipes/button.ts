@@ -9,7 +9,7 @@ export const button = defineRecipe({
     justifyContent: 'center',
     borderRadius: 'md',
     fontSize: 'sm',
-    fontWeight: 'semibold',
+    fontWeight: 'medium',
     appearance: 'none',
     cursor: 'pointer',
     outline: 'none',
@@ -55,11 +55,11 @@ export const button = defineRecipe({
         },
       },
       outline: {
-        color: 'border',
+        borderWidth: '1px',
         borderColor: 'input',
         backgroundColor: 'background',
         _hover: {
-          backgroundColor: 'destructive.accent',
+          backgroundColor: 'accent.default',
           color: 'accent.foreground',
         },
       },

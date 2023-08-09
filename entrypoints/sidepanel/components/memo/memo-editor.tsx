@@ -5,13 +5,14 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Text from '@tiptap/extension-text'
 import Typography from '@tiptap/extension-typography'
 import { SolidEditor, SolidEditorContent, useEditor } from '@vrite/tiptap-solid'
-import { Component, Show, createEffect, createSignal, on } from 'solid-js'
+import { Component, For, Show, createEffect, createSignal, on } from 'solid-js'
 import { Button } from '~/components/shared/button'
 import { Spin } from '~/components/shared/spin'
 import { css } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
 import { Memo, db } from '~/service/db'
 import IconAdd from '~icons/carbon/add'
+import IconClose from '~icons/carbon/close'
 import IconImage from '~icons/carbon/image'
 import IconLink from '~icons/carbon/link'
 import { TagPopover } from '../tag/tag-popover'
@@ -27,6 +28,7 @@ type ExtensionOptions = {
 
 export type MemoEditorProps = {
   content?: Content
+  tags?: string[]
   editable?: boolean
   afterSave?: (editor: SolidEditor) => void
 }
@@ -57,6 +59,7 @@ const getExtensions = (options: ExtensionOptions): Extensions => {
 
 export const MemoEditor: Component<MemoEditorProps> = (props) => {
   const [isSaving, setIsSaving] = createSignal(false)
+  const [tags, setTags] = createSignal(props.tags || [])
 
   const editor = useEditor({
     editable: props.editable,
@@ -89,6 +92,7 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
     setIsSaving(true)
     const val = new Memo()
     val.content = editor().getJSON()
+    val.tags = tags()
     db.save(db.table.memos, val)
       .then(() => {
         props.afterSave?.(editor())
@@ -108,6 +112,35 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
         <SolidEditorContent editor={editor()} />
       </styled.div>
       <Show when={props.editable}>
+        <Show when={tags().length}>
+          <Flex alignItems="center" mt="2" justify="space-between" wrap="wrap" gap="2">
+            <For each={tags()}>
+              {(t) => (
+                <styled.div
+                  px="2"
+                  rounded="full"
+                  h="1.5rem"
+                  bg="background"
+                  borderWidth="1px"
+                  borderColor="input"
+                  color="accent.foreground"
+                  display="inline-flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  fontSize="xs"
+                  fontWeight="medium"
+                >
+                  {t}
+                  <IconClose
+                    class={css({ cursor: 'pointer' })}
+                    onClick={() => setTags((prev) => prev.filter((v) => v !== t))}
+                  ></IconClose>
+                </styled.div>
+              )}
+            </For>
+          </Flex>
+        </Show>
+
         <Flex alignItems="center" mt="2" justify="space-between">
           <Flex gap="1" alignItems="center">
             <Button variant="ghost" size="xs" px="0">
@@ -116,7 +149,11 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
             <Button variant="ghost" size="xs" px="0">
               <IconLink class={css({ h: '1.2rem', w: '1.2rem' })} />
             </Button>
-            <TagPopover>
+            <TagPopover
+              onSelect={(v) => {
+                !tags().includes(v) && setTags((prev) => [...prev, v])
+              }}
+            >
               <Button variant="outline" size="xs" px="1.5" rounded="full" h="1.5rem">
                 <IconAdd class={css({ h: '1.2rem', w: '1.2rem' })} />
                 Tag

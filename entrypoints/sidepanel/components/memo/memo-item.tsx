@@ -68,6 +68,7 @@ export const MemoItem: Component<{ data: Memo }> = (props) => {
       <MemoEditor
         editable={editable()}
         content={props.data.content}
+        tags={props.data.tags}
         afterSave={() => setEditable(false)}
       />
     </styled.div>

@@ -18,5 +18,5 @@ export const Textarea: Component<HTMLStyledProps<'textarea'>> = (props) => (
     _focusVisible={{ ring: 'none', ringOffset: 'none', shadow: '1' }}
     _disabled={{ cursor: 'not-allowed', opacity: '0.5' }}
     {...props}
-  ></styled.textarea>
+   />
 )

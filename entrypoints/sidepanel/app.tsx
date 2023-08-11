@@ -12,8 +12,8 @@ export default function App() {
       <Navbar />
       <Container py="2" px="0">
         <Routes>
-          <Route path="/" component={Home}></Route>
-          <Route path="/about" component={About}></Route>
+          <Route path="/" component={Home} />
+          <Route path="/about" component={About} />
         </Routes>
       </Container>
     </Router>

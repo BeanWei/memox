@@ -31,11 +31,11 @@ export function useDbQuery(options: UseDbQueryOptions): UseDbQueryReturn {
     loading(true)
     setError(null)
 
-    return await new Promise<any>((resolve, _reject) => {
+    return await new Promise<any>((resolve) => {
       options
         .query()
         .then((res) => {
-          let data = res as any
+          const data = res as any
           options.onSuccess?.(data)
           setResult(data)
           return resolve(res)

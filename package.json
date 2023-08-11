@@ -11,12 +11,17 @@
     "build": "wxt build",
     "build:firefox": "wxt build -b firefox",
     "compile": "tsc --noEmit",
-    "prepare": "wxt prepare && panda codegen"
+    "prepare": "wxt prepare && panda codegen",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.101",
     "@pandacss/dev": "^0.11.0",
     "@types/node": "^20.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.46.0",
+    "eslint-plugin-solid": "^0.12.1",
     "prettier": "3.0.1",
     "prettier-plugin-organize-imports": "3.2.3",
     "typescript": "5.1.6",

@@ -134,7 +134,7 @@ export const MemoEditor: Component<MemoEditorProps> = (props) => {
                   <IconClose
                     class={css({ cursor: 'pointer' })}
                     onClick={() => setTags((prev) => prev.filter((v) => v !== t))}
-                  ></IconClose>
+                  />
                 </styled.div>
               )}
             </For>

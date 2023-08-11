@@ -66,7 +66,7 @@ export const TagPopover: Component<TagPopoverProps> = (props) => {
               setTagName(s)
               handleSearchTags(s)
             }}
-          ></styled.input>
+          />
         </styled.div>
         <Show
           when={!tagName() || searchTags().length > 0}
@@ -138,7 +138,7 @@ export const TagPopover: Component<TagPopoverProps> = (props) => {
       <PopoverTrigger asChild>{props.children}</PopoverTrigger>
       <Portal>
         <PopoverPositioner class={popover()}>
-          <Content></Content>
+          <Content />
         </PopoverPositioner>
       </Portal>
     </Popover>

@@ -67,7 +67,7 @@ const Home: Component = () => {
       <Show when={data()?.length}>
         <Flex direction="column" gap="2" mt="3" px="2" h="calc(100vh - 190px)" overflow="overlay">
           <For each={data()}>{(item) => <MemoItem data={item} />}</For>
-          <InfiniteScroll intersect={handleIntersect}></InfiniteScroll>
+          <InfiniteScroll intersect={handleIntersect} />
         </Flex>
       </Show>
       <Show when={!data()?.length && isFinished()}>

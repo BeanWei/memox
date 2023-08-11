@@ -10,7 +10,7 @@ import { A } from '@solidjs/router'
 import { Component, createSignal } from 'solid-js'
 import { Portal } from 'solid-js/web'
 import { Button } from '~/components/shared/button'
-import { css } from '~/panda/css'
+import { css, cx } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
 import { drawer } from '~/panda/recipes'
 import IconClose from '~icons/carbon/close'
@@ -18,6 +18,7 @@ import IconOpenPanelLeft from '~icons/carbon/open-panel-left'
 import IconPenFountain from '~icons/carbon/pen-fountain'
 
 const MobileNav: Component = () => {
+  const cls = drawer()
   const [isOpen, setIsOpen] = createSignal(false)
 
   return (
@@ -45,9 +46,9 @@ const MobileNav: Component = () => {
         </Button>
       </DialogTrigger>
       <Portal>
-        <DialogBackdrop class={drawer()} />
-        <DialogContainer class={drawer()}>
-          <DialogContent class={css({ minWidth: '75%' })}>
+        <DialogBackdrop class={cls.backdrop} />
+        <DialogContainer class={cls.container}>
+          <DialogContent class={cx(css({ minWidth: '75%' }), cls.content)}>
             <A
               href="/"
               class={css({ display: 'flex', alignItems: 'center' })}

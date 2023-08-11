@@ -1,6 +1,7 @@
 import { defineConfig } from '@pandacss/dev'
 import { globalCss } from '~/theme/global-css'
 import { recipes } from '~/theme/recipes'
+import { tokens } from './theme/tokens'
 
 export default defineConfig({
   preflight: true,
@@ -26,6 +27,7 @@ export default defineConfig({
   theme: {
     extend: {
       recipes,
+      tokens,
       semanticTokens: {
         colors: {
           border: { value: { base: 'hsl(240 5.9% 90%)', _dark: 'hsl(240 3.7% 15.9%)' } },

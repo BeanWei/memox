@@ -13,6 +13,12 @@ export const drawer = defineSlotRecipe({
       background: 'background',
       opacity: '0.8',
       backdropBlur: 'sm',
+      _open: {
+        animation: 'backdrop-in',
+      },
+      _closed: {
+        animation: 'backdrop-out',
+      },
     },
     container: {
       alignItems: 'flex-start',

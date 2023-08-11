@@ -17,6 +17,14 @@ const baseItemStyle = {
     bg: 'accent.default',
     color: 'accent.foreground',
   },
+  _hover: {
+    bg: 'accent.default',
+    color: 'accent.foreground',
+  },
+  _highlighted: {
+    bg: 'accent.default',
+    color: 'accent.foreground',
+  },
   _disabled: {
     pointerEvents: 'none',
     opacity: '50',

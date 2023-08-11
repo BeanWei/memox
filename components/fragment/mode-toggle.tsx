@@ -9,6 +9,7 @@ import IconMoon from '~icons/carbon/moon'
 import IconSun from '~icons/carbon/sun'
 
 export const ModeToggle: Component = () => {
+  const cls = menu()
   const { setStore, state } = useColorMode()
 
   createEffect(() => {
@@ -28,15 +29,15 @@ export const ModeToggle: Component = () => {
         </Button>
       </MenuTrigger>
       <Portal>
-        <MenuPositioner class={menu()}>
-          <MenuContent>
-            <MenuItem id="light" onClick={() => setStore('light')}>
+        <MenuPositioner class={cls.positioner}>
+          <MenuContent class={cls.content}>
+            <MenuItem class={cls.item} id="light" onClick={() => setStore('light')}>
               Light
             </MenuItem>
-            <MenuItem id="dark" onClick={() => setStore('dark')}>
+            <MenuItem class={cls.item} id="dark" onClick={() => setStore('dark')}>
               Dark
             </MenuItem>
-            <MenuItem id="auto" onClick={() => setStore('auto')}>
+            <MenuItem class={cls.item} id="auto" onClick={() => setStore('auto')}>
               System
             </MenuItem>
           </MenuContent>

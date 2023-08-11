@@ -3,7 +3,7 @@ import { usePopoverContext } from '@ark-ui/solid/popover'
 import uFuzzy from '@leeoniya/ufuzzy'
 import { Component, For, JSX, Show, createSignal } from 'solid-js'
 import { Portal } from 'solid-js/web'
-import { css } from '~/panda/css'
+import { css, cx } from '~/panda/css'
 import { Flex, styled } from '~/panda/jsx'
 import { input } from '~/panda/recipes/input'
 import { popover } from '~/panda/recipes/popover'
@@ -18,6 +18,7 @@ export type TagPopoverProps = {
 }
 
 export const TagPopover: Component<TagPopoverProps> = (props) => {
+  const cls = popover()
   const [tags, setTags] = createSignal<string[]>([])
   const [tagName, setTagName] = createSignal('')
   const [searchTags, setSearchTags] = createSignal<string[]>([])
@@ -53,7 +54,7 @@ export const TagPopover: Component<TagPopoverProps> = (props) => {
   const Content = () => {
     const api = usePopoverContext()
     return (
-      <PopoverContent class={css({ p: '1' })}>
+      <PopoverContent class={cx(cls.content, css({ p: '1' }))}>
         <styled.div borderBottomWidth="1px" borderBottomColor="border">
           <styled.input
             class={input()}
@@ -137,7 +138,7 @@ export const TagPopover: Component<TagPopoverProps> = (props) => {
     >
       <PopoverTrigger asChild>{props.children}</PopoverTrigger>
       <Portal>
-        <PopoverPositioner class={popover()}>
+        <PopoverPositioner class={cls.positioner}>
           <Content />
         </PopoverPositioner>
       </Portal>

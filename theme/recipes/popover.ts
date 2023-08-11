@@ -1,12 +1,11 @@
 import { popoverAnatomy } from '@ark-ui/solid'
-import { defineParts, defineRecipe } from '@pandacss/dev'
+import { defineSlotRecipe } from '@pandacss/dev'
 
-const parts = defineParts(popoverAnatomy.build())
-
-export const popover = defineRecipe({
+export const popover = defineSlotRecipe({
   className: 'popover',
   description: 'A popover styles',
-  base: parts({
+  slots: popoverAnatomy.keys(),
+  base: {
     positioner: {
       zIndex: '50',
     },
@@ -47,5 +46,5 @@ export const popover = defineRecipe({
       borderTopWidth: '1px',
       borderLeftWidth: '1px',
     },
-  }),
+  },
 })
